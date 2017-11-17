@@ -1,45 +1,39 @@
-# Artificial Intelligence Nanodegree
-## Introductory Project: Diagonal Sudoku Solver
+# Sudoku Solver
 
-# Question 1 (Naked Twins)
-Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+## Screenshot
+![alt text](https://github.com/adammain/ai-agent-sudoku/blob/master/images/sample.png)
 
-# Question 2 (Diagonal Sudoku)
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
-
-### Install
-
+## Install
 This project requires **Python 3**.
+Clone this repository
+```
+git clone https://github.com/adammain/ai-agent-sudoku
+```
+## How to run
+```python
+python3 sudoku.py
+```
+### Input Format
+81 characters long string **row wise 9x9** with each character implying the value filled in that particular box. If box is unfilled put '.' as its place.
+For example:
+![alt text](https://github.com/adammain/ai-agent-sudoku/blob/master/images/sudoku.png)
+For this sudoku input:
+```
+4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......
+```
 
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
-Please try using the environment we provided in the Anaconda lesson of the Nanodegree.
+## [Algorithms detail](http://norvig.com/sudoku.html)
+### [Constraint propagation](http://www.lirmm.fr/~bessiere/stock/TR06020.pdf)
+Used in functions **elimination** and **naked_twin** in ```utils.py``` to eliminate the possibility of presence of any digit if it is present in corresponding row, column or square.
 
-##### Optional: Pygame
+### [Search](http://intelligence.worldofcomputing.net/ai-search/depth-first-search.html)
+Implemented recursion techniques to create depth-first-search trees for solving hard sudokus that need guess work in any particular box to proceed.
 
-Optionally, you can also install pygame if you want to see your visualization. If you've followed our instructions for setting up our conda environment, you should be all set.
+## [Sudoku strategy](http://sudokudragon.com/sudokustrategy.htm)
+* Only choice rule
+* Single possibility rule
+* Naked Twin exclusion rule
 
-If not, please see how to download pygame [here](http://www.pygame.org/download.shtml).
+### MIT License
 
-### Code
-
-* `solution.py` - Fill in the required functions in this file to complete the project.
-* `test_solution.py` - You can test your solution by running `python -m unittest`.
-* `PySudoku.py` - This is code for visualizing your solution.
-* `visualize.py` - This is code for visualizing your solution.
-
-### Visualizing
-
-To visualize your solution, please only assign values to the values_dict using the `assign_value` function provided in solution.py
-
-### Submission
-Before submitting your solution to a reviewer, you are required to submit your project to Udacity's Project Assistant, which will provide some initial feedback.  
-
-The setup is simple.  If you have not installed the client tool already, then you may do so with the command `pip install udacity-pa`.  
-
-To submit your code to the project assistant, run `udacity submit` from within the top-level directory of this project.  You will be prompted for a username and password.  If you login using google or facebook, visit [this link](https://project-assistant.udacity.com/auth_tokens/jwt_login) for alternate login instructions.
-
-This process will create a zipfile in your top-level directory named sudoku-<id>.zip.  This is the file that you should submit to the Udacity reviews system.
-
-# ai-agent-sudoku
+Copyright (c) 2017 [Adam Main](http://adammain.github.io)
