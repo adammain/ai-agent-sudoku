@@ -1,10 +1,16 @@
 assignments = []
+cols = '123456789'
+rows = 'ABCDEFGHI'
 
 
 def cross(strA, strB):
     # Concatinate letter a from string A with letter B from str B
     # ...creates cols/row ID (A1, A2, etc.) for each box on board
     return [char_a + char_b for char_a in strA for char_b in strB]
+
+boxes = cross(rows, cols)
+row_units = [cross(r, cols) for r in rows]
+column_units = [cross(rows, c) for c in cols]
 
 
 def assign_value(values, box, value):
