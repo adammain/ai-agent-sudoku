@@ -11,6 +11,10 @@ def cross(strA, strB):
 boxes = cross(rows, cols)
 row_units = [cross(r, cols) for r in rows]
 column_units = [cross(rows, c) for c in cols]
+square_units = [cross(rs, cs) for rs in ('ABC', 'DEF', 'GHI')
+                for cs in ('123', '456', '789')]
+diagonal_units = [[(rd + str(cd + 1)) for cd, rd in enumerate(rows)],
+                  [(rd + str(cd + 1)) for cd, rd in enumerate(reversed(rows))]]
 
 
 def assign_value(values, box, value):
