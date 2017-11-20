@@ -1,6 +1,12 @@
 assignments = []
 
 
+def cross(strA, strB):
+    # Concatinate letter a from string A with letter B from str B
+    # ...creates cols/row ID (A1, A2, etc.) for each box on board
+    return [char_a + char_b for char_a in strA for char_b in strB]
+
+
 def assign_value(values, box, value):
     """
     Please use this function to update your values dictionary!
