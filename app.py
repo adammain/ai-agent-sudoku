@@ -15,6 +15,9 @@ square_units = [cross(rs, cs) for rs in ('ABC', 'DEF', 'GHI')
                 for cs in ('123', '456', '789')]
 diagonal_units = [[(rd + str(cd + 1)) for cd, rd in enumerate(rows)],
                   [(rd + str(cd + 1)) for cd, rd in enumerate(reversed(rows))]]
+unitlist = row_units + column_units + square_units + diagonal_units
+units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
+peers = dict((s, set(sum(units[s], [])) - set([s])) for s in boxes)
 
 
 def assign_value(values, box, value):
