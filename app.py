@@ -46,6 +46,29 @@ def naked_twins(values):
         the values dictionary with the naked twins eliminated from peers.
     """
 
+    # Find all instances of naked twins
+    for unit in unitlist:
+        seen = set()
+        dup_boxes = []
+        potential_twins = [pt for pt in unit if len(values[pt]) == 2]
+
+        # if box values in unit have length of 2, check values are equal
+        if len(potential_twins) > 1:
+            for pt in potential_twins:
+                if values[pt] not in seen:
+                    seen.add(values[pt])
+                else:
+                    dup_boxes.append(pt)
+
+        # Eliminate the naked twins values from peer values
+        if len(dup_boxes) > 0:
+            dup_value = values[dup_boxes[0]]
+            for d in dup_value:
+                for u in unit:
+                    if d in values[u] and dup_value != values[u]:
+                        old_val = values[u]
+                        new_value = old_val.replace(d, '')
+                        assign_value(values, u, new_value)
     return values
 
 
