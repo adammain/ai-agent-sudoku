@@ -37,6 +37,18 @@ def assign_value(values, box, value):
     return values
 
 
+def naked_twins(values):
+    """Eliminate values using the naked twins strategy.
+    Args:
+        values(dict): a dictionary of the form {'box_name': '123456789', ...}
+
+    Returns:
+        the values dictionary with the naked twins eliminated from peers.
+    """
+
+    return values
+
+
 if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
     display(solve(diag_sudoku_grid))
