@@ -115,7 +115,7 @@ def grid_values(grid):
         else:
             new_grid.append(b)
     assert len(new_grid) == 81, "Input grid must be a string of length 81 (9x9)"
-    return (boxes, new_grid)
+    return dict(zip(boxes, new_grid))
 
 
 if __name__ == '__main__':
