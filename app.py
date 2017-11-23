@@ -73,6 +73,14 @@ def naked_twins(values):
 
 
 def naked_twins(values):
+    """Eliminate values using the naked twins strategy.
+    Args:
+        values(dict): a dictionary of the form {'box_name': '123456789', ...}
+
+    Returns:
+        the values dictionary with the naked twins eliminated from peers.
+    """
+
     # Find all instances of naked twins
     for unit in unitlist:
         seen = set()
