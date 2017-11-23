@@ -107,7 +107,14 @@ def naked_twins(values):
     return values
 
 def grid_values(grid):
-    
+    new_grid = []
+
+    for b in grid:
+        if b == '.':
+            new_grid.append(cols)
+        else:
+            new_grid.append(b)
+    assert len(new_grid) == 81, "Input grid must be a string of length 81 (9x9)"
     return pass
 
 
