@@ -127,6 +127,23 @@ def grid_values(grid):
     return dict(zip(boxes, new_grid))
 
 
+def display(values):
+    """
+    Display the values as a 2-D grid.
+    Args:
+        values(dict): The sudoku in dictionary form
+    """
+    if values:
+        width = 1 + max(len(values[s]) for s in boxes)
+        line = '+'.join(['-' * (width * 3)] * 3)
+        for r in rows:
+            print(''.join(values[r + c].center(width) + ('|' if c in '36' else '')
+                          for c in cols))
+            if r in 'CF':
+                print(line)
+    return
+
+
 if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
     display(solve(diag_sudoku_grid))
